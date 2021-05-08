@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/github/adityasonel/react-animated-tree-v2.svg?branch=master)](https://travis-ci.com/github/adityasonel/react-animated-tree-v2) [![npm version](https://badge.fury.io/js/react-animated-tree-v2.svg)](https://badge.fury.io/js/react-animated-tree-v2)
+[![Build Status](https://travis-ci.com/adityasonel/react-animated-tree-v2.svg?branch=master)](https://travis-ci.com/adityasonel/react-animated-tree-v2) [![npm version](https://badge.fury.io/js/react-animated-tree-v2.svg)](https://badge.fury.io/js/react-animated-tree-v2)
 
     npm install react-animated-tree-v2
 
@@ -20,7 +20,6 @@ Demo: https://codesandbox.io/embed/rrw7mrknyp
 
 ```jsx
 import Tree from "react-animated-tree"
-
 ;<Tree content="Apple" type="Fruit" open canHide visible onClick={console.log}>
 	<Tree content="Contents">
 		<Tree content="Seeds" />
