@@ -38,27 +38,40 @@ const Contents = ({ children, ...style }) => (
 );
 
 export default class Tree extends React.PureComponent {
-    static defaultProps = { open: false, visible: true, canHide: false };
+    static defaultProps = { open: false, visible: true, canHide: false, icons: {} };
     static propTypes = {
         open: PropTypes.bool,
         visible: PropTypes.bool,
         canHide: PropTypes.bool,
         content: PropTypes.node,
         springConfig: PropTypes.func,
+        itemId: PropTypes.string,
+        onItemClick: PropTypes.func,
+        onItemToggle: PropTypes.func,
+        icons: PropTypes.object,
     };
 
     constructor(props) {
         super();
-        this.state = { open: props.open, visible: props.visible, immediate: false };
+        this.state = { open: props.open, visible: props.visible, immediate: false, id: props.itemId };
     }
 
-    toggle = () => this.props.children && this.setState((state) => ({ open: !state.open, immediate: false }));
+    toggle = () => {
+        if (typeof this.props.children !== "undefined") {
+            this.props.onItemToggle && this.props.onItemToggle(this.state.id, !this.state.open);
+            this.setState((state) => ({ open: !state.open, immediate: false }));
+        }
+    };
 
     toggleVisibility = () => {
         this.setState(
             (state) => ({ visible: !state.visible, immediate: true }),
             () => this.props.onClick && this.props.onClick(this.state.visible)
         );
+    };
+
+    onItemClick = () => {
+        this.props.onItemClick && this.props.onItemClick(this.state.id);
     };
 
     componentWillReceiveProps(props) {
@@ -72,8 +85,16 @@ export default class Tree extends React.PureComponent {
 
     render() {
         const { open, visible, immediate } = this.state;
-        const { children, content, type, style, canHide, springConfig } = this.props;
-        const Icon = Icons[`${children ? (open ? "Minus" : "Plus") : "Close"}SquareO`];
+        const { children, content, type, style, canHide, springConfig, icons } = this.props;
+
+        const icon = children
+            ? open
+                ? icons.minusIcon || "Minus"
+                : icons.plusIcon || "Plus"
+            : icons.closeIcon || "Close";
+        const Icon = typeof icon === "string" ? Icons[icon] : icon;
+        const IconEye = icons.eyeIcon || Icons.Eye;
+
         return (
             <div style={{ ...styles.tree, ...style }} className="treeview">
                 <Icon
@@ -83,13 +104,15 @@ export default class Tree extends React.PureComponent {
                 />
                 <span style={{ ...styles.type, marginRight: type ? 10 : 0 }}>{type}</span>
                 {canHide && (
-                    <Icons.EyeO
+                    <IconEye
                         className="toggle"
                         style={{ ...styles.toggle, opacity: visible ? 1 : 0.4 }}
                         onClick={this.toggleVisibility}
                     />
                 )}
-                <span style={{ verticalAlign: "middle" }}>{content}</span>
+                <span onClick={this.onItemClick} style={{ verticalAlign: "middle" }}>
+                    {content}
+                </span>
                 <Spring
                     native
                     immediate={immediate}

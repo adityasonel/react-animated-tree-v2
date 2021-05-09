@@ -1,6 +1,6 @@
 import React from "react";
 
-const MinusSquareO = (props) => (
+const Minus = (props) => (
     <svg {...props} viewBox="64 -65 897 897">
         <g>
             <path
@@ -11,7 +11,7 @@ const MinusSquareO = (props) => (
     </svg>
 );
 
-const PlusSquareO = (props) => (
+const Plus = (props) => (
     <svg {...props} viewBox="64 -65 897 897">
         <g>
             <path
@@ -22,7 +22,7 @@ const PlusSquareO = (props) => (
     </svg>
 );
 
-const EyeO = (props) => (
+const Eye = (props) => (
     <svg {...props} viewBox="61 51 902 666">
         <g>
             <path
@@ -34,7 +34,7 @@ const EyeO = (props) => (
     </svg>
 );
 
-const CloseSquareO = (props) => (
+const Close = (props) => (
     <svg {...props} viewBox="64 -65 897 897">
         <g>
             <path
@@ -45,4 +45,4 @@ const CloseSquareO = (props) => (
     </svg>
 );
 
-export { PlusSquareO, MinusSquareO, CloseSquareO, EyeO };
+export { Plus, Minus, Close, Eye };
