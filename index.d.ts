@@ -39,6 +39,42 @@ export interface TreeProps {
      * Custom react-spring animation config
      */
     springConfig?: Function;
+
+    /**
+     * ItemId of the node
+     *
+     * Custom identifier of tree item
+     */
+    itemId: String;
+
+    /**
+     * Events on the tree span item, parameters: itemId.
+     */
+    onItemClick?: React.MouseEventHandler<any>;
+
+    /**
+     * Events on the toggle icon, parameters: itemId, isOpen.
+     */
+    onItemToggle?: React.MouseEventHandler<any>;
+
+    icons?: {
+        /**
+         * Plus icon
+         */
+        plusIcon?: React.ReactNode;
+        /**
+         * Minus icon
+         */
+        minusIcon?: React.ReactNode;
+        /**
+         * Close icon
+         */
+        closeIcon?: React.ReactNode;
+        /**
+         * Hide(eye) icon
+         */
+        eyeIcon?: React.ReactNode;
+    };
 }
 
 export default class Tree extends React.Component<TreeProps> {}

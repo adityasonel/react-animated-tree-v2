@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.com/adityasonel/react-animated-tree-v2.svg?branch=master)](https://travis-ci.com/adityasonel/react-animated-tree-v2) [![npm version](https://badge.fury.io/js/react-animated-tree-v2.svg)](https://badge.fury.io/js/react-animated-tree-v2)
 
+Port of [react-animated-tree](https://github.com/drcmda/react-animated-tree), with updated libraries, custom svg icons and many more new features.
+
     npm install react-animated-tree-v2
 
 A simple, configurable tree view control for React.
@@ -8,7 +10,7 @@ A simple, configurable tree view control for React.
   <img src="assets/tree.gif" width="600" />
 </p>
 
-Demo: https://codesandbox.io/embed/rrw7mrknyp
+Demo: https://codesandbox.io/embed/react-animated-tree-v2-33u37
 
 -   `content`, Name of the node (string or React-component)
 -   `type`, optional description, good for displaying icons, too (string or React-component)
@@ -17,11 +19,24 @@ Demo: https://codesandbox.io/embed/rrw7mrknyp
 -   `visible`, optional: default visible state
 -   `onClick`, optional: click events on the eye
 -   `springConfig`, optional: react-spring animation config
+-   `onItemClick`, optional: click events on the tree span item (pass itemId props as parameter)
+-   `onItemToggle`, optional: click events on the toggle icon, parameters: itemId, isOpen
+-   `itemId`, optional: custom identifier of tree item
+-   `icons`, optional: custom svg icons (plus, minus, close and eye)
 
 ```jsx
 import Tree from "react-animated-tree-v2";
 
-<Tree content="Apple" type="Fruit" open canHide visible onClick={console.log}>
+<Tree
+    content="Apple"
+    type="Fruit"
+    open
+    canHide
+    visible
+    onClick={console.log}
+    itemId={"apple"}
+    onItemClick={(itemId) => console.log(itemId)}
+>
     <Tree content="Contents">
         <Tree content="Seeds" />
     </Tree>
