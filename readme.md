@@ -24,6 +24,8 @@ Demo: https://codesandbox.io/embed/react-animated-tree-v2-33u37
 -   `itemId`, optional: custom identifier of tree item
 -   `icons`, optional: custom svg icons (plus, minus, close and eye)
 
+Customised icon demo: https://codesandbox.io/embed/react-animated-tree-v2-custom-icons-mz23x
+
 ```jsx
 import Tree from "react-animated-tree-v2";
 
