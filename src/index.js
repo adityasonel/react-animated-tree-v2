@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Spring, config, animated } from "react-spring";
 import * as Icons from "./icons";
 
-const styles = {
+const treeStyles = {
     tree: {
         position: "relative",
         padding: "4px 0px 0px 0px",
@@ -32,10 +32,6 @@ const styles = {
         borderLeft: "1px dashed rgba(255,255,255,0.4)",
     },
 };
-
-const Contents = ({ children, ...style }) => (
-    <animated.div style={{ ...style, ...styles.contents }}>{children}</animated.div>
-);
 
 export default class Tree extends React.PureComponent {
     static defaultProps = { open: false, visible: true, canHide: false, icons: {} };
@@ -96,17 +92,17 @@ export default class Tree extends React.PureComponent {
         const IconEye = icons.eyeIcon || Icons.Eye;
 
         return (
-            <div style={{ ...styles.tree, ...style }} className="treeview">
+            <div style={{ ...treeStyles.tree, ...style }} className="treeview">
                 <Icon
                     className="toggle"
-                    style={{ ...styles.toggle, opacity: children ? 1 : 0.3 }}
+                    style={{ ...treeStyles.toggle, opacity: children ? 1 : 0.3 }}
                     onClick={this.toggle}
                 />
-                <span style={{ ...styles.type, marginRight: type ? 10 : 0 }}>{type}</span>
+                <span style={{ ...treeStyles.type, marginRight: type ? 10 : 0 }}>{type}</span>
                 {canHide && (
                     <IconEye
                         className="toggle"
-                        style={{ ...styles.toggle, opacity: visible ? 1 : 0.4 }}
+                        style={{ ...treeStyles.toggle, opacity: visible ? 1 : 0.4 }}
                         onClick={this.toggleVisibility}
                     />
                 )}
@@ -128,9 +124,8 @@ export default class Tree extends React.PureComponent {
                         transform: open ? "translate3d(0px,0,0)" : "translate3d(20px,0,0)",
                     }}
                     {...(springConfig && springConfig(open))}
-                    render={Contents}
                 >
-                    {children}
+                    {(styles) => <animated.div style={{ ...styles, ...treeStyles.contents }}>{children}</animated.div>}
                 </Spring>
             </div>
         );
