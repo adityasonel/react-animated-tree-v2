@@ -45,7 +45,7 @@ export interface TreeProps {
      *
      * Custom identifier of tree item
      */
-    itemId: String;
+    itemId?: String;
 
     /**
      * Events on the tree span item, parameters: itemId.
