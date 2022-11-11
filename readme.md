@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/adityasonel/react-animated-tree-v2.svg?branch=master)](https://travis-ci.com/adityasonel/react-animated-tree-v2) [![npm version](https://badge.fury.io/js/react-animated-tree-v2.svg)](https://badge.fury.io/js/react-animated-tree-v2)
+[![Build Status](https://travis-ci.com/adityasonel/react-animated-tree-v2.svg?branch=master)](https://travis-ci.com/adityasonel/react-animated-tree-v2) [![npm version](https://badge.fury.io/js/react-animated-tree-v2.svg)](//npmjs.com/package/react-animated-tree-v2)
 
 Port of [react-animated-tree](https://github.com/drcmda/react-animated-tree), with updated libraries, custom svg icons and many more new features.
 
