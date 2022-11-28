@@ -1,6 +1,6 @@
 {
     "name": "react-animated-tree-v2",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Animate React with ease",
     "main": "dist/react-animated-tree-v2.cjs.js",
     "module": "dist/react-animated-tree-v2.es.js",
@@ -78,6 +78,6 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.20.1",
-        "react-spring": "^9.5.5"
+        "react-spring": "8.0.27"
     }
 }
