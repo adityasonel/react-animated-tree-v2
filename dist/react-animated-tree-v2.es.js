@@ -8,7 +8,7 @@ import _getPrototypeOf from '@babel/runtime/helpers/esm/getPrototypeOf';
 import _defineProperty from '@babel/runtime/helpers/esm/defineProperty';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Spring, config, animated } from 'react-spring';
+import { Spring, config, animated } from 'react-spring/renderprops';
 
 var Minus = function Minus(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({}, props, {

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Spring, config, animated } from "react-spring";
+import { Spring, config, animated } from "react-spring/renderprops";
 import * as Icons from "./icons";
 
 const treeStyles = {

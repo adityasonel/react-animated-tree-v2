@@ -10,7 +10,7 @@ var _getPrototypeOf = require('@babel/runtime/helpers/getPrototypeOf');
 var _defineProperty = require('@babel/runtime/helpers/defineProperty');
 var React = require('react');
 var PropTypes = require('prop-types');
-var reactSpring = require('react-spring');
+var renderprops = require('react-spring/renderprops');
 
 var Minus = function Minus(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({}, props, {
@@ -173,10 +173,10 @@ var Tree = /*#__PURE__*/function (_React$PureComponent) {
         style: {
           verticalAlign: "middle"
         }
-      }, content), /*#__PURE__*/React.createElement(reactSpring.Spring, _extends({
+      }, content), /*#__PURE__*/React.createElement(renderprops.Spring, _extends({
         "native": true,
         immediate: immediate,
-        config: _objectSpread(_objectSpread({}, reactSpring.config["default"]), {}, {
+        config: _objectSpread(_objectSpread({}, renderprops.config["default"]), {}, {
           restSpeedThreshold: 1,
           restDisplacementThreshold: 0.01
         }),
@@ -191,7 +191,7 @@ var Tree = /*#__PURE__*/function (_React$PureComponent) {
           transform: open ? "translate3d(0px,0,0)" : "translate3d(20px,0,0)"
         }
       }, springConfig && springConfig(open)), function (styles) {
-        return /*#__PURE__*/React.createElement(reactSpring.animated.div, {
+        return /*#__PURE__*/React.createElement(renderprops.animated.div, {
           style: _objectSpread(_objectSpread({}, styles), treeStyles.contents)
         }, children);
       }));
