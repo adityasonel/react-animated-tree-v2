@@ -1,80 +1,77 @@
-import * as React from "react";
-
-export interface TreeProps {
+import { CSSProperties, ReactNode } from "react";
+interface IIcon {
+    className?: string;
+    style?: CSSProperties;
+    onClick?: () => void;
+}
+interface ITree {
     /**
      * Name of the node
      */
-    content?: React.ReactNode;
-
+    content?: ReactNode;
     /**
      * Description of the node
      *
      * This is a good way to provide a custom icon for a node.
      */
-    type?: React.ReactNode;
-
+    type?: ReactNode;
     /**
      * Default open state
      */
     open?: boolean;
-
     /**
      * Default visible state
      */
     visible?: boolean;
-
     /**
      * Whether or not an eye icon should be shown for the Tree
      *
      * Manage user interaction with the eye through the "onClick" prop.
      */
     canHide?: boolean;
-
     /**
      * Event handler for clicks on the eye
      */
-    onClick?: React.MouseEventHandler<any>;
-
+    onClick?: (visible: boolean | undefined) => void;
     /**
+     *
      * Custom react-spring animation config
      */
-    springConfig?: Function;
-
+    springConfig?: (open: boolean | undefined) => object;
     /**
      * ItemId of the node
      *
      * Custom identifier of tree item
      */
-    itemId?: String;
-
+    itemId?: string;
     /**
      * Events on the tree span item, parameters: itemId.
      */
-    onItemClick?: React.MouseEventHandler<any>;
-
+    onItemClick?: (id: string | undefined) => void;
     /**
      * Events on the toggle icon, parameters: itemId, isOpen.
      */
-    onItemToggle?: React.MouseEventHandler<any>;
-
+    onItemToggle?: (id: string | undefined, open: boolean | undefined) => void;
     icons?: {
         /**
          * Plus icon
          */
-        plusIcon?: React.ReactNode;
+        plusIcon?: ((props: IIcon) => ReactNode) | string;
         /**
          * Minus icon
          */
-        minusIcon?: React.ReactNode;
+        minusIcon?: ((props: IIcon) => ReactNode) | string;
         /**
          * Close icon
          */
-        closeIcon?: React.ReactNode;
+        closeIcon?: ((props: IIcon) => ReactNode) | string;
         /**
          * Hide(eye) icon
          */
-        eyeIcon?: React.ReactNode;
+        eyeIcon?: ((props: IIcon) => ReactNode) | string;
     };
+    children?: ReactNode;
+    style?: CSSProperties;
 }
-
-export default class Tree extends React.Component<TreeProps> {}
+export default function Tree(props: ITree): import("react/jsx-runtime").JSX.Element;
+export {};
