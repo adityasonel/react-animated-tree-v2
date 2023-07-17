@@ -56,11 +56,9 @@ function createConfig(entry, out, name) {
                 globals: {
                     react: "React",
                     "react-dom": "ReactDOM",
-                    "prop-types": "PropTypes",
-                    "react-spring": "ReactSpring",
                 },
             },
-            external: ["react", "react-dom", "prop-types", "react-spring"],
+            external: ["react", "react-dom"],
             plugins: [
                 babel(getBabelOptions({ useESModules: false })),
                 nodeResolve(),
