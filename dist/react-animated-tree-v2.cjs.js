@@ -84,11 +84,14 @@ function Tree(props) {
         : (_c = icons === null || icons === void 0 ? void 0 : icons.closeIcon) !== null && _c !== void 0 ? _c : "Close";
     var Icon = typeof icon === "string" ? Icons[icon] : icon;
     var IconEye = (_d = icons === null || icons === void 0 ? void 0 : icons.eyeIcon) !== null && _d !== void 0 ? _d : Eye;
+    react.useEffect(function () {
+        setOpen(props.open);
+    }, [props.open]);
     return (jsxRuntime.jsxs("div", { style: tslib.__assign(tslib.__assign({}, treeStyles.tree), style), className: "treeview", children: [jsxRuntime.jsx(Icon, { className: "toggle", style: tslib.__assign(tslib.__assign({}, treeStyles.toggle), { opacity: children ? 1 : 0.3 }), onClick: toggle }), jsxRuntime.jsx("span", { style: tslib.__assign(tslib.__assign({}, treeStyles.type), { marginRight: type ? 10 : 0 }), children: type }), canHide && (jsxRuntime.jsx(IconEye, { className: "toggle", style: tslib.__assign(tslib.__assign({}, treeStyles.toggle), { opacity: visible ? 1 : 0.4 }), onClick: toggleVisibility })), jsxRuntime.jsx("span", { onClick: onItemClick, style: { verticalAlign: "middle" }, children: content }), jsxRuntime.jsx(renderprops.Spring, tslib.__assign({ native: true, immediate: immediate, config: tslib.__assign({}, renderprops.config.default), from: { height: 0, opacity: 0, transform: "translate3d(20px,0,0)" }, to: {
                     height: open ? "auto" : 0,
                     opacity: open ? 1 : 0,
                     transform: open ? "translate3d(0px,0,0)" : "translate3d(20px,0,0)",
-                } }, (springConfig && springConfig(open)), { children: function (styles) { return (jsxRuntime.jsx(renderprops.animated.div, { style: tslib.__assign(tslib.__assign({}, styles), treeStyles.contents), children: children })); } }))] }));
+                } }, (springConfig && springConfig(open)), { children: function (styles) { return jsxRuntime.jsx(renderprops.animated.div, { style: tslib.__assign(tslib.__assign({}, styles), treeStyles.contents), children: children }); } }))] }));
 }
 
 module.exports = Tree;

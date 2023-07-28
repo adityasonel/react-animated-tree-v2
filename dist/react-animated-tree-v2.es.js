@@ -1,6 +1,6 @@
 import { __assign } from 'tslib';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Spring, config, animated } from 'react-spring/renderprops';
 
 var Minus = function (props) { return (jsx("svg", __assign({}, props, { viewBox: "64 -65 897 897", children: jsx("g", { children: jsx("path", { d: "M888 760v0v0v-753v0h-752v0v753v0h752zM888 832h-752q-30 0 -51 -21t-21 -51v-753q0 -29 21 -50.5t51 -21.5h753q29 0 50.5 21.5t21.5 50.5v753q0 30 -21.5 51t-51.5 21v0zM732 347h-442q-14 0 -25 10.5t-11 25.5v0q0 15 11 25.5t25 10.5h442q14 0 25 -10.5t11 -25.5v0\n  q0 -15 -11 -25.5t-25 -10.5z" }) }) }))); };
@@ -82,11 +82,14 @@ function Tree(props) {
         : (_c = icons === null || icons === void 0 ? void 0 : icons.closeIcon) !== null && _c !== void 0 ? _c : "Close";
     var Icon = typeof icon === "string" ? Icons[icon] : icon;
     var IconEye = (_d = icons === null || icons === void 0 ? void 0 : icons.eyeIcon) !== null && _d !== void 0 ? _d : Eye;
+    useEffect(function () {
+        setOpen(props.open);
+    }, [props.open]);
     return (jsxs("div", { style: __assign(__assign({}, treeStyles.tree), style), className: "treeview", children: [jsx(Icon, { className: "toggle", style: __assign(__assign({}, treeStyles.toggle), { opacity: children ? 1 : 0.3 }), onClick: toggle }), jsx("span", { style: __assign(__assign({}, treeStyles.type), { marginRight: type ? 10 : 0 }), children: type }), canHide && (jsx(IconEye, { className: "toggle", style: __assign(__assign({}, treeStyles.toggle), { opacity: visible ? 1 : 0.4 }), onClick: toggleVisibility })), jsx("span", { onClick: onItemClick, style: { verticalAlign: "middle" }, children: content }), jsx(Spring, __assign({ native: true, immediate: immediate, config: __assign({}, config.default), from: { height: 0, opacity: 0, transform: "translate3d(20px,0,0)" }, to: {
                     height: open ? "auto" : 0,
                     opacity: open ? 1 : 0,
                     transform: open ? "translate3d(0px,0,0)" : "translate3d(20px,0,0)",
-                } }, (springConfig && springConfig(open)), { children: function (styles) { return (jsx(animated.div, { style: __assign(__assign({}, styles), treeStyles.contents), children: children })); } }))] }));
+                } }, (springConfig && springConfig(open)), { children: function (styles) { return jsx(animated.div, { style: __assign(__assign({}, styles), treeStyles.contents), children: children }); } }))] }));
 }
 
 export { Tree as default };

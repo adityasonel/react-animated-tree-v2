@@ -1,6 +1,6 @@
 {
     "name": "@formal-tech/react-animated-tree-v2",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Animate React with ease",
     "main": "dist/react-animated-tree-v2.cjs.js",
     "module": "dist/react-animated-tree-v2.es.js",

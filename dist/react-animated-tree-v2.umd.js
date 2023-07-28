@@ -3152,11 +3152,14 @@
             : (_c = icons === null || icons === void 0 ? void 0 : icons.closeIcon) !== null && _c !== void 0 ? _c : "Close";
         var Icon = typeof icon === "string" ? Icons[icon] : icon;
         var IconEye = (_d = icons === null || icons === void 0 ? void 0 : icons.eyeIcon) !== null && _d !== void 0 ? _d : Eye;
+        require$$0$1.useEffect(function () {
+            setOpen(props.open);
+        }, [props.open]);
         return (jsxRuntimeExports.jsxs("div", { style: __assign(__assign({}, treeStyles.tree), style), className: "treeview", children: [jsxRuntimeExports.jsx(Icon, { className: "toggle", style: __assign(__assign({}, treeStyles.toggle), { opacity: children ? 1 : 0.3 }), onClick: toggle }), jsxRuntimeExports.jsx("span", { style: __assign(__assign({}, treeStyles.type), { marginRight: type ? 10 : 0 }), children: type }), canHide && (jsxRuntimeExports.jsx(IconEye, { className: "toggle", style: __assign(__assign({}, treeStyles.toggle), { opacity: visible ? 1 : 0.4 }), onClick: toggleVisibility })), jsxRuntimeExports.jsx("span", { onClick: onItemClick, style: { verticalAlign: "middle" }, children: content }), jsxRuntimeExports.jsx(Spring_1, __assign({ native: true, immediate: immediate, config: __assign({}, config_1.default), from: { height: 0, opacity: 0, transform: "translate3d(20px,0,0)" }, to: {
                         height: open ? "auto" : 0,
                         opacity: open ? 1 : 0,
                         transform: open ? "translate3d(0px,0,0)" : "translate3d(20px,0,0)",
-                    } }, (springConfig && springConfig(open)), { children: function (styles) { return (jsxRuntimeExports.jsx(animated.div, { style: __assign(__assign({}, styles), treeStyles.contents), children: children })); } }))] }));
+                    } }, (springConfig && springConfig(open)), { children: function (styles) { return jsxRuntimeExports.jsx(animated.div, { style: __assign(__assign({}, styles), treeStyles.contents), children: children }); } }))] }));
     }
 
     return Tree;
